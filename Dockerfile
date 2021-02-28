@@ -13,7 +13,6 @@ COPY tsconfig.json ./
 # add app
 COPY . /usr/src/app
 
-
 RUN npm install
 RUN npm run tsc
 
@@ -21,5 +20,4 @@ RUN npm run tsc
 EXPOSE 8081
 
 # start app
-CMD [ "source", "set_env.sh"]
 CMD [ "node", "./www/server.js" ]
