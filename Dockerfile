@@ -4,16 +4,22 @@ FROM node:13
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 # install and cache app dependencies
-COPY package.json /usr/src/app/
-
-RUN npm install
+COPY package*.json ./
+COPY tsconfig.json ./
 
 # add app
 COPY . /usr/src/app
+
+
+RUN npm install
+RUN npm run tsc
 
 # prod port
 EXPOSE 8081
 
 # start app
-CMD [ "npm", "start" ]
+CMD [ "source", "set_env.sh"]
+CMD [ "node", "./www/server.js" ]
