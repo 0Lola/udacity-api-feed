@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 13
+  - 12
 
 services:
   - docker
@@ -19,4 +19,5 @@ script:
   - docker tag udacity-api zxa011023/udacity-api-feed:latest
 
 after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push zxa011023/udacity-api-feed
