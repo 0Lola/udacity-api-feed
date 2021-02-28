@@ -15,8 +15,8 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t udacity-api-feed .
-  - docker tag udacity-api-feed zxa011023/udacity-api-feed:latest
+  - docker build -t zxa011023/udacity-api-feed .
+  - docker tag zxa011023/udacity-api-feed zxa011023/udacity-api-feed:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
