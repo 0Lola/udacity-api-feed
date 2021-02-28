@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 12
+  - 13
 
 services:
   - docker
@@ -16,7 +16,7 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t udacity-api-feed .
-  - docker tag udacity-api zxa011023/udacity-api-feed:latest
+  - docker tag udacity-api-feed zxa011023/udacity-api-feed:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
