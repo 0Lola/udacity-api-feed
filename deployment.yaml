@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment #  Deployment or Service
+metadata:
+  name: udacity-api-feed
+  labels:
+    app: udacity-api-feed
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: udacity-api-feed
+  template:
+    metadata:
+      labels:
+        app: udacity-api-feed
+    spec:
+      containers: # Docker image source
+      - name: udacity-api-feed
+        image: zxa011023/udacity-api-feed
+        ports:
+        - containerPort: 8081

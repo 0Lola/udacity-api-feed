@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service #  Deployment or Service
+metadata:
+  name: udacity-api-feed
+  labels:
+    run: udacity-api-feed
+spec:
+  ports:
+  - port: 8081
+    protocol: TCP
+  selector:
+    run: udacity-api-feed
