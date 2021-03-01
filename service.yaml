@@ -5,6 +5,7 @@ metadata:
   labels:
     run: udacity-api-feed
 spec:
+  type: NodePort
   ports:
   - port: 8081
     targetPort: 8082
