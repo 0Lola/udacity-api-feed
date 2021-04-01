@@ -18,4 +18,4 @@ spec:
       - name: udacity-api-feed
         image: zxa011023/udacity-api-feed
         ports:
-        - containerPort: 8081
+        - containerPort: 80
